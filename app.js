@@ -10,9 +10,9 @@ app.post('/prove', function (req, res) {
 });
 
 app.post('/verify', function (req, res) {
-    res.json({ verify: true });
+    res.json({ verify: Math.random() > 0.5});
 });
 
-app.listen(8080, function () {
+app.listen(8080 , function () {
     console.log('Example app listening on port 8080!');
 });

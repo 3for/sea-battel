@@ -135,6 +135,10 @@ const sendLayout = async () => {
 
     const textArea = document.getElementById("serverResponse");
     textArea.style.display = "block";
+
+    const verifyBtn = document.getElementById("verifyBtn");
+    verifyBtn.style.display = "block";
+
     textArea.value = JSON.stringify(resp);
 };
 
@@ -149,6 +153,18 @@ const sendVerify = async () => {
         },
         body: textArea.value
     });
+
     const content = await rawResponse.json();
+    const verifyLabel = document.getElementById("verificationStatus");
+
+    if(content.verify){
+        verifyLabel.style.color= "green";
+        verifyLabel.innerHTML = "Verified";
+    }
+    else {
+        verifyLabel.style.color= "red";
+        verifyLabel.innerHTML = "Verification Failed";
+    }
+
     return content;
 };
