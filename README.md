@@ -2,4 +2,5 @@
 
 ## How to use
 ```npm i```
+
 ```node app.js```

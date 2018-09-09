@@ -4,18 +4,13 @@ var app = express();
 app.use(express.static('public'));
 app.use(express.json());
 
-
-app.post('/generate1', function(request, response){
-    console.log(request.body);      // your JSON
-    response.send(request.body);    // echo the result back
+app.post('/prove', function (req, res) {
+    // res.send('generate response');
+    res.json({ prove: true });
 });
 
-app.get('/generate2', function (req, res) {
-    res.send('generate response');
-});
-
-app.get('/verify', function (req, res) {
-    res.send('generate response');
+app.post('/verify', function (req, res) {
+    res.json({ verify: true });
 });
 
 app.listen(8080, function () {
